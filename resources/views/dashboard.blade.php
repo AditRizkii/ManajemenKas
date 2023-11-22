@@ -5,32 +5,34 @@
         <div class="container-fluid py-4 px-5">
 
             <div class="row">
-                <a href="{{ route('mahasiswa') }}" class="col-xl-3 col-sm-6 mb-xl-0">
-                    <div class="card border shadow-xs mb-4">
-                        <div class="card-body text-start p-3 w-100">
-                            <div
-                                class="icon icon-shape icon-sm bg-dark text-white text-center border-radius-sm d-flex align-items-center justify-content-center mb-3">
-                                <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                    fill="currentColor">
-                                    <path d="M4.5 3.75a3 3 0 00-3 3v.75h21v-.75a3 3 0 00-3-3h-15z" />
-                                    <path fill-rule="evenodd"
-                                        d="M22.5 9.75h-21v7.5a3 3 0 003 3h15a3 3 0 003-3v-7.5zm-18 3.75a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="w-100">
-                                        <p class="text-sm text-secondary mb-1">Mahasiswa</p>
-                                        <h4 class="mb-2 font-weight-bold">68</h4>
+                @role('admin')
+                    <a href="{{ route('mahasiswa.index') }}" class="col-xl-3 col-sm-6 mb-xl-0">
+                        <div class="card border shadow-xs mb-4">
+                            <div class="card-body text-start p-3 w-100">
+                                <div
+                                    class="icon icon-shape icon-sm bg-dark text-white text-center border-radius-sm d-flex align-items-center justify-content-center mb-3">
+                                    <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path d="M4.5 3.75a3 3 0 00-3 3v.75h21v-.75a3 3 0 00-3-3h-15z" />
+                                        <path fill-rule="evenodd"
+                                            d="M22.5 9.75h-21v7.5a3 3 0 003 3h15a3 3 0 003-3v-7.5zm-18 3.75a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="w-100">
+                                            <p class="text-sm text-secondary mb-1">Mahasiswa</p>
+                                            <h4 class="mb-2 font-weight-bold">68</h4>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-                <a href="{{ route('uang-kas') }}" class="col-xl-3 col-sm-6 mb-xl-0">
+                    </a>
+                @endrole
+                <a href="{{ route('uang-kas.index') }}" class="col-xl-3 col-sm-6 mb-xl-0">
                     <div class="card border shadow-xs mb-4">
                         <div class="card-body text-start p-3 w-100">
                             <div
@@ -61,7 +63,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ route('pengeluaran') }}" class="col-xl-3 col-sm-6 mb-xl-0">
+                <a href="{{ route('pengeluaran.index') }}" class="col-xl-3 col-sm-6 mb-xl-0">
                     <div class="card border shadow-xs mb-4">
                         <div class="card-body text-start p-3 w-100">
                             <div

@@ -40,7 +40,7 @@
                                             class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
                                             No</th>
                                         <th
-                                            class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
+                                            class="text-start text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
                                             Nama</th>
                                         <th
                                             class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
@@ -57,95 +57,48 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">1</td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            Nisa Rianti
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">2208107010000</td>
-                                        <td class="align-middle bg-transparent border-bottom">nisa@nisa.com</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">081234567895
-                                        </td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <button type="button" class="" data-bs-toggle="modal"
-                                                data-bs-target="#modaledit"
-                                                style="border:none; background-color:transparent;"><i
-                                                    class="fas fa-user-edit ms-2" aria-hidden="true"
-                                                    style="color: #64748b;"></i></button>
-                                            <button onclick="return confirm('Apakah Anda Yakin?')"
-                                                style="border:none; background-color:transparent;"><i
-                                                    class="fas fa-trash ms-2" aria-hidden="true"
-                                                    style="color: #dc2626;"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">2</td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            Nisa Rianti
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">2208107010000</td>
-                                        <td class="align-middle bg-transparent border-bottom">nisa@nisa.com</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">081234567895
-                                        </td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <a href="#"><i class="fas fa-user-edit ms-2" aria-hidden="true"
-                                                    style="color: #64748b;"></i></a>
-                                            <a href="#" onclick="return confirm('Apakah Anda Yakin?')"><i
-                                                    class="fas fa-trash ms-2" aria-hidden="true"
-                                                    style="color: #dc2626;"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">3</td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            Nisa Rianti
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">2208107010000</td>
-                                        <td class="align-middle bg-transparent border-bottom">nisa@nisa.com</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">081234567895
-                                        </td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <a href="#"><i class="fas fa-user-edit ms-2" aria-hidden="true"
-                                                    style="color: #64748b;"></i></a>
-                                            <a href="#" onclick="return confirm('Apakah Anda Yakin?')"><i
-                                                    class="fas fa-trash ms-2" aria-hidden="true"
-                                                    style="color: #dc2626;"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">4</td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            Nisa Rianti
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">2208107010000</td>
-                                        <td class="align-middle bg-transparent border-bottom">nisa@nisa.com</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">081234567895
-                                        </td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <a href="#"><i class="fas fa-user-edit ms-2" aria-hidden="true"
-                                                    style="color: #64748b;"></i></a>
-                                            <a href="#" onclick="return confirm('Apakah Anda Yakin?')"><i
-                                                    class="fas fa-trash ms-2" aria-hidden="true"
-                                                    style="color: #dc2626;"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">5</td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            Nisa Rianti
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">2208107010000</td>
-                                        <td class="align-middle bg-transparent border-bottom">nisa@nisa.com</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">081234567895
-                                        </td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <a href="#"><i class="fas fa-user-edit ms-2" aria-hidden="true"
-                                                    style="color: #64748b;"></i></a>
-                                            <a href="#" onclick="return confirm('Apakah Anda Yakin?')"><i
-                                                    class="fas fa-trash ms-2" aria-hidden="true"
-                                                    style="color: #dc2626;"></i></a>
-                                        </td>
-                                    </tr>
+                                    @php
+                                        $no = 0;
+                                    @endphp
+                                    @foreach ($users as $item)
+                                        @php
+                                            $no++;
+                                        @endphp
+                                        <tr>
+                                            <td class="align-middle bg-transparent border-bottom">
+                                                {{ $no }}
+                                            </td>
+                                            <td class="text-start bg-transparent border-bottom">
+                                                {{ $item->name }}
+                                            </td>
+                                            <td class="align-middle bg-transparent border-bottom">{{ $item->npm }}
+                                            </td>
+                                            <td class="align-middle bg-transparent border-bottom">{{ $item->email }}
+                                            </td>
+                                            <td class="text-center align-middle bg-transparent border-bottom">
+                                                {{ $item->phone }}
+                                            </td>
+                                            <td class="text-center align-middle bg-transparent border-bottom"
+                                                style="display: flex; justify-content:center;">
+                                                <button type="button" class="" data-bs-toggle="modalEdit"
+                                                    data-bs-target="#mahasiswaEdit{{ $item->id }}"
+                                                    style="border:none; background-color:transparent;"><i
+                                                        class="fas fa-user-edit ms-2" aria-hidden="true"
+                                                        style="color: #64748b;"></i></button>
+                                                <form method="POST"
+                                                    action="{{ route('mahasiswa.destroy', $item->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button onclick="return confirm('Apakah Anda Yakin?')"
+                                                        style="border:none; background-color:transparent;"><i
+                                                            class="fas fa-trash ms-2" aria-hidden="true"
+                                                            style="color: #dc2626;"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+
 
                                 </tbody>
                                 @include('mahasiswa.edit')

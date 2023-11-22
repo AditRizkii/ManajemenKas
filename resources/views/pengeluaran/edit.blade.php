@@ -1,4 +1,5 @@
-<div class="modal fade ms-8" id="pengeluaranedit" tabindex="1" aria-labelledby="modalEdit" aria-hidden="true">
+<div class="modal fade ms-8" id="pengeluaranedit{{ $pengeluaran->id }}" tabindex="1" aria-labelledby="modalEdit"
+    aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content rounded-25">
             <div class="modal-body py-0 px-0">
@@ -19,16 +20,19 @@
                                     <div class="d-flex flex-column">
                                         <label for="tglPengeluaran" class="fs-6 fw-base mx-1">Tanggal
                                             Pengeluaran</label>
-                                        <input type="text" name="tglPengeluaran" id="tglPengeluaran"
-                                            value="23/04/18">
+                                        {{-- <input type="date" name="" id=""> --}}
+                                        <input type="date" name="tglPengeluaran" id="tglPengeluaran"
+                                            value="{{ Carbon\Carbon::parse($pengeluaran->tgl_pengeluaran)->toDateString() }}">
                                     </div>
                                     <div class="d-flex flex-column">
                                         <label for="pengeluaran" class="fs-6 fw-base mx-1">Jumlah Pengeluaran</label>
-                                        <input type="text" name="pengeluaran" id="pengeluaran" value="1000000">
+                                        <input type="text" name="pengeluaran" id="pengeluaran"
+                                            value="{{ $pengeluaran->jumlah }}">
                                     </div>
                                     <div class="d-flex flex-column">
                                         <label for="keterangan" class="fs-6 fw-base mx-1">Keterangan</label>
-                                        <input type="text" name="keterangan" id="keterangan" value="Lorem ipsum">
+                                        <input type="text" name="keterangan" id="keterangan"
+                                            value="{{ $pengeluaran->keterangan }}">
                                     </div>
 
                                     <div class="d-flex justify-content-end mx-5">

@@ -7,6 +7,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\BulanController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\PengeluaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,14 +29,6 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard')->middleware('auth');
-
-Route::get('/pengeluaran', function () {
-    return view('pengeluaran.pengeluaran');
-})->name('pengeluaran')->middleware('auth');
-
-Route::get('/uang-kas', function () {
-    return view('uang-kas.uang-kas');
-})->name('uang-kas')->middleware('auth');
 
 Route::get('/uang-kas/bulan', function () {
     return view('uang-kas.bulan');
@@ -86,4 +81,8 @@ Route::post('/reset-password', [ResetPasswordController::class, 'store'])
 
 // Route::get('/laravel-examples/user-profile', [ProfileController::class, 'index'])->name('users.profile')->middleware('auth');
 // Route::put('/laravel-examples/user-profile/update', [ProfileController::class, 'update'])->name('users.update')->middleware('auth');
-Route::get('/mahasiswa', [UserController::class, 'index'])->name('mahasiswa')->middleware('auth');
+
+Route::resource("/mahasiswa", UserController::class)->middleware('auth');
+Route::resource("/uang-kas", BulanController::class)->middleware('auth');
+Route::resource("/pengeluaran", PengeluaranController::class)->middleware('auth');
+Route::resource("/laporan", LaporanController::class)->middleware('auth');

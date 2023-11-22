@@ -11,11 +11,12 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        User::factory()->create([
-            'name' => 'Nisa Rianti',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('secret'),
-            'about' => "Hi, I’m Nisa, Decisions: i'm crazy.",
+        $this->call([
+            RoleSeeder::class,
+            AdminSeeder::class,
+            MahasiswaSeeder::class,
+            BulanSeeder::class,
+            PengeluaranSeeder::class,
         ]);
     }
 }

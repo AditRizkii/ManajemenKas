@@ -15,22 +15,23 @@
                         </div>
                         <div class="p-3 py-4">
                             <div class="md-form flex">
-                                <form action="#" method="#" class="d-grid gap-5">
+                                <form action="{{ route('mahasiswa.store') }}" method="POST" class="d-grid gap-5">
+                                    @csrf
                                     <div class="d-flex flex-column">
-                                        <label for="nama" class="fs-6 fw-base mx-1">Nama</label>
-                                        <input type="text" name="nama" id="nama">
+                                        <label for="name" class="fs-6 fw-base mx-1">Nama</label>
+                                        <input type="text" name="name" id="name">
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <label for="NPM" class="fs-6 fw-base mx-1">NPM</label>
-                                        <input type="text" name="NPM" id="NPM">
+                                        <label for="npm" class="fs-6 fw-base mx-1">NPM</label>
+                                        <input type="text" name="npm" id="npm">
                                     </div>
                                     <div class="d-flex flex-column">
                                         <label for="email" class="fs-6 fw-base mx-1">Email</label>
                                         <input type="text" name="email" id="email">
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <label for="noHP" class="fs-6 fw-base mx-1">No. HP</label>
-                                        <input type="text" name="noHP" id="noHP">
+                                        <label for="phone" class="fs-6 fw-base mx-1">No. HP</label>
+                                        <input type="text" name="phone" id="phone">
                                     </div>
 
                                     <div class="d-flex justify-content-end mx-5">

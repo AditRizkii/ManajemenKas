@@ -41,99 +41,43 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="align-middle text-center">
-                                                1
-                                            </td>
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-sm font-weight-normal">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                <span
-                                                    class="text-secondary text-sm font-weight-normal">Rp1.000.000</span>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                Lorem ipsum
-                                            </td>
-                                            <td class="text-center align-middle bg-transparent border-bottom ">
-                                                <button type="button" class="" data-bs-toggle="modal"
-                                                    data-bs-target="#pengeluaranedit"
-                                                    style="border:none; background-color:transparent;"><i
-                                                        class="fas fa-user-edit ms-2" aria-hidden="true"
-                                                        style="color: #64748b;"></i></button>
-                                                <a href="#" onclick="return confirm('Apakah Anda Yakin?')"><i
-                                                        class="fas fa-trash ms-2" aria-hidden="true"
-                                                        style="color: #dc2626;"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle text-center">
-                                                2
-                                            </td>
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-sm font-weight-normal">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                <span
-                                                    class="text-secondary text-sm font-weight-normal">Rp1.000.000</span>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                Lorem ipsum
-                                            </td>
-                                            <td class="text-center align-middle bg-transparent border-bottom ">
-                                                <a href="#"><i class="fas fa-user-edit ms-2" aria-hidden="true"
-                                                        style="color: #64748b;"></i></a>
-                                                <a href="#" onclick="return confirm('Apakah Anda Yakin?')"><i
-                                                        class="fas fa-trash ms-2" aria-hidden="true"
-                                                        style="color: #dc2626;"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle text-center">
-                                                3
-                                            </td>
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-sm font-weight-normal">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                <span
-                                                    class="text-secondary text-sm font-weight-normal">Rp1.000.000</span>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                Lorem ipsum
-                                            </td>
-                                            <td class="text-center align-middle bg-transparent border-bottom ">
-                                                <a href="#"><i class="fas fa-user-edit ms-2" aria-hidden="true"
-                                                        style="color: #64748b;"></i></a>
-                                                <a href="#" onclick="return confirm('Apakah Anda Yakin?')"><i
-                                                        class="fas fa-trash ms-2" aria-hidden="true"
-                                                        style="color: #dc2626;"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle text-center">
-                                                4
-                                            </td>
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-sm font-weight-normal">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                <span
-                                                    class="text-secondary text-sm font-weight-normal">Rp1.000.000</span>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                Lorem ipsum
-                                            </td>
-                                            <td class="text-center align-middle bg-transparent border-bottom ">
-                                                <a href="#"><i class="fas fa-user-edit ms-2" aria-hidden="true"
-                                                        style="color: #64748b;"></i></a>
-                                                <a href="#" onclick="return confirm('Apakah Anda Yakin?')"><i
-                                                        class="fas fa-trash ms-2" aria-hidden="true"
-                                                        style="color: #dc2626;"></i></a>
-                                            </td>
-                                        </tr>
+                                        @php
+                                            $no = 0;
+                                        @endphp
+                                        @foreach ($pengeluarans as $pengeluaran)
+                                            @php
+                                                $no++;
+                                            @endphp
+                                            <tr>
+                                                <td class="align-middle text-center">
+                                                    {{ $no }}
+                                                </td>
+                                                <td class="align-middle">
+                                                    <span class="text-secondary text-sm font-weight-normal">
+                                                        {{ Carbon\Carbon::parse($pengeluaran->tgl_pengeluaran)->toDateString() }}
+                                                    </span>
+                                                </td>
+                                                <td class="align-middle text-sm">
+                                                    <span
+                                                        class="text-secondary text-sm font-weight-normal">Rp{{ $pengeluaran->jumlah }}</span>
+                                                </td>
+                                                <td class="align-middle text-sm">
+                                                    {{ $pengeluaran->keterangan }}
+                                                </td>
+                                                <td class="text-center align-middle bg-transparent border-bottom ">
+                                                    <button type="button" class="" data-bs-toggle="modal"
+                                                        data-bs-target="#pengeluaranedit{{ $pengeluaran->id }}"
+                                                        style="border:none; background-color:transparent;"><i
+                                                            class="fas fa-user-edit ms-2" aria-hidden="true"
+                                                            style="color: #64748b;"></i></button>
+                                                    <a href="#" onclick="return confirm('Apakah Anda Yakin?')"><i
+                                                            class="fas fa-trash ms-2" aria-hidden="true"
+                                                            style="color: #dc2626;"></i></a>
+                                                </td>
+                                            </tr>
+                                            @include('pengeluaran.edit')
+                                        @endforeach
                                     </tbody>
-                                    @include('pengeluaran.edit')
                                     @include('pengeluaran.create')
                                 </table>
                             </div>

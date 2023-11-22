@@ -15,14 +15,22 @@
                         </div>
                         <div class="p-3 py-4">
                             <div class="md-form flex">
-                                <form action="#" method="#" class="d-grid gap-2">
+                                <form action="{{ route('uang-kas.store') }}" method="POST" class="d-grid gap-2">
+                                    @csrf
                                     <div class="d-flex flex-column">
-                                        <label for="bulan" class="fs-6 fw-base mx-1">Bulan</label>
-                                        <input type="text" name="bulan" id="bulan">
+                                        <label for="nama" class="fs-6 fw-base mx-1">Bulan</label>
+                                        <input type="text" name="nama" id="nama">
                                     </div>
                                     <div class="d-flex flex-column">
                                         <label for="tahun" class="fs-6 fw-base mx-1">Tahun</label>
                                         <input type="text" name="tahun" id="tahun">
+                                    </div>
+
+                                    <div class="d-flex flex-column">
+                                        <label for="pembayaran_perminggu" class="fs-6 fw-base mx-1">Pembayaran Per
+                                            Minggu</label>
+                                        <input type="text" name="pembayaran_perminggu" id="pembayaran_perminggu"
+                                            pattern="\d*">
                                     </div>
 
                                     <div class="d-flex justify-content-end mx-5">
